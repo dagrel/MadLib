@@ -6,7 +6,18 @@ namespace MadLib
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("yes or no?");
+            string answer = Console.ReadLine();
+
+            if (answer == "yes")
+            {
+                Console.WriteLine("så bra, lez go");
+            }
+            else if (answer == "no")
+            { 
+                Console.WriteLine("too bad");
+            }
+           
         }
     }
 }
