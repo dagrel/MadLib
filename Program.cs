@@ -1,66 +1,74 @@
 ﻿using System;
 
-namespace MadLib
+namespace Game
 {
-    class Program
+
+    static class MadLib
     {
-        static void Main()
+        // lag variabla med ord
+
+        static string[] Words = { "Creature", "Luminous", "Ghastly", "Spectral",
+            "Farmer", "Hound" };
+
+        static string[] Input = { "ord", "ord2", "ord3", "ord4", "ord5", "ord6" };
+         
+         
+
+        // Variabel for ferdig historie:
+        static string Story;
+
+        public static void Run()
         {
-            // lag variabla med ord
+            Intro();
+            PlayerWords();
+            StoryPrint();
+        }
 
-            string Creature;
-            string Luminous;
-            string Ghastly;
-            string Spectral;
-            string Farmer;
-            string Hound;
-
-            // Variabel for ferdig historie:
-            string Story;
-
-
-            // skriv ut ein intro
-
-            Console.WriteLine("Hei, og velkommen til dette madlib spelet");
-            Console.WriteLine("Du kan velge mellom desse orda:");
+            static void Intro()
+            {
+                // skriv ut ein intro
+                Console.WriteLine("Hei, og velkommen til dette madlib spelet");
+                Console.WriteLine("Du kan velge mellom desse orda:");
+            }
             
 
-            // be spelar skrive inn ord
-            Console.Write("Vennligst skriv inn eit ord: ");
-            Creature = Console.ReadLine();
+            static void PlayerWords()
+            {
+                // be spelar skrive inn ord
+               for (int i = 0; i < Words.Length; i++)
+               {
+                Console.Write($"Skriv inn {Input[i]}:");
+                Words[i] = Console.ReadLine();
+               
+               }
+            }
+            
 
-            Console.Write("Vennligst skriv inn eit ord: ");
-            Luminous = Console.ReadLine();
+            static void StoryPrint()
+            {
+                // skriv ut ferdig historie
+                Story = $"They all agreed that it was a huge {Input[0]}, {Words[1]}, {Words[3]}, and {Words[4]}." +
+                    $" I have cross-examined these men, one of them a hard-headed countryman, one a farrier, " +
+                    $"and one a moorland {Words[5]}, who all tell the same story of this dreadful apparition, " +
+                    $"exactly corresponding to the {Words[6]} of the legend.";
 
-            Console.Write("Vennligst skriv inn eit ord: ");
-            Ghastly = Console.ReadLine();
+                Console.WriteLine(Story);
 
-            Console.Write("Vennligst skriv inn eit ord: ");
-            Spectral = Console.ReadLine();
+                Console.ReadKey();
 
-            Console.Write("Vennligst skriv inn eit ord: ");
-            Farmer = Console.ReadLine();
-
-            Console.Write("Vennligst skriv inn eit ord: ");
-            Hound = Console.ReadLine();
-
-
-            // skriv ut ferdig historie
-
-            Story = $"They all agreed that it was a huge {Creature}, {Luminous}, {Ghastly}, and {Spectral}." +
-                $" I have cross-examined these men, one of them a hard-headed countryman, one a farrier, " +
-                $"and one a moorland {Farmer}, who all tell the same story of this dreadful apparition, " +
-                $"exactly corresponding to the {Hound} of the legend.";
-
-            Console.WriteLine(Story);
-
-            Console.ReadKey();
+            }
+    }
 
 
+    class Program
+    {
+        
 
-
-
+        static void Main()
+        {
+            MadLib.Run();
         }
     }
+
 }
         
